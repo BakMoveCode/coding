@@ -10,7 +10,7 @@
  * 2. 内层从i开始，依次往后数，找到比开头小的，互换位置即可
  *
  * 记忆点：
- * 选择最小，内从外开始并比较
+ * 选择最小，i与j进行比较，第一个为最小
  *
  */
 
@@ -18,7 +18,7 @@ function selectSort(arr) {
   let len = arr.length;
   for (let i = 0; i < len - 1; i++) {
     for (let j = i; j < len; j++) {
-      if (arr[j] > arr[i]) {
+      if (arr[j] < arr[i]) {
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
