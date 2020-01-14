@@ -15,3 +15,20 @@ const newFunc = function(fn, ...args) {
   }
   return obj;
 };
+
+function newFunction(fn, ...args) {
+  if (typeof fn !== "function") {
+    return false;
+  }
+  let obj = Object.create(fn.prototype);
+  let result;
+  result = fn.apply(obj, args);
+  if (
+    typeof result === "function" ||
+    (typeof result === "object" && result !== null)
+  ) {
+    return result;
+  } else {
+    return obj;
+  }
+}
