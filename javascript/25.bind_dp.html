@@ -1,0 +1,23 @@
+<html>
+  <head> </head>
+  <body>
+    <div id="span"></div>
+    <input id="input" />
+  </body>
+  <script>
+    const data = {
+      name: "caicai"
+    };
+    const span = document.getElementById("id");
+    const input = document.getElementById("input");
+    Object.defineProperties(data, "name", {
+      set(newVal) {
+        input.value = newVal;
+        span.innerHTML = newVal;
+      }
+    });
+    input.addEventListener("keyup", function(e) {
+      data.name = e.target.value;
+    });
+  </script>
+</html>
