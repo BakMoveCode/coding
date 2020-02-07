@@ -2,7 +2,7 @@
   <head></head>
   <body>
     <div id="span"></div>
-    <div id="input"></div>
+    <input id="input" />
     <script>
       const data = {
         text: "caicai"
@@ -14,7 +14,6 @@
           target[key] = value;
           input.value = value;
           span.innerHTML = value;
-          console.log(span.innerHTML);
           return value;
         }
       };

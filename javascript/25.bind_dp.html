@@ -5,13 +5,14 @@
     <input id="input" />
   </body>
   <script>
-    const data = {
+    let data = {
       name: "caicai"
     };
-    const span = document.getElementById("id");
+    const span = document.getElementById("span");
     const input = document.getElementById("input");
-    Object.defineProperties(data, "name", {
+    Object.defineProperty(data, "name", {
       set(newVal) {
+        console.log(newVal);
         input.value = newVal;
         span.innerHTML = newVal;
       }

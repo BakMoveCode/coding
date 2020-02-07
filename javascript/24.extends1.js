@@ -37,6 +37,6 @@ function inherits(ctor, superCtor) {
 
 // 组合继承的使用
 function Man() {
-  People, call(this);
+  People.call(this);
 }
 inherits(Man, People);

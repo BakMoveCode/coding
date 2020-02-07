@@ -1,22 +1,29 @@
-let obj = {
-  value: [1, 2, 3, 4, 5, 6],
-  [Symbol.iterator]: function() {
-    let _this = this;
-    let i = 0;
-    return {
-      next() {
-        let value = _this.value[i];
-        let done = i >= _this.value.length;
-        i++;
-        return {
-          value,
-          done
-        };
-      }
-    };
-  }
+function Dep() {
+  this.subs = [];
+}
+
+Dep.prototype.addSub = function(sub) {
+  this.subs.push(sub);
 };
 
-for (let k of obj) {
-  console.log(k);
+Dep.prototype.notify = function() {
+  this.subs.forEach(sub => {
+    sub.update();
+  });
+};
+
+function Watcher(fn) {
+  this.fn = fn;
 }
+
+Watcher.prototype.update = function() {
+  this.fn();
+};
+
+let dep = new Dep();
+
+let watcher = new Watcher(() => console.log(111));
+
+dep.addSub(watcher);
+dep.addSub(watcher);
+dep.notify();
