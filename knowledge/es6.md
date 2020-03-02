@@ -37,6 +37,24 @@ ES6 规定，默认的 Iterator 接口部署在数据结构的 Symbol.iterator �
 
 ##### async 和 await
 
+async 函数，就是 Generator 函数的语法糖，建立在 Promise 上，并且与所有现有的基于 Promise 的 API 兼容
+
+1. async，声明一个异步函数
+   - 自动将常规函数转换成 Promise，返回值也是一个 promise 对象
+   - 只有 async 函数内部的异步操作执行完，才会执行 then 方法指定的回调函数
+   - 异步函数内部可以使用 await
+2. await，暂停异步的功能执行
+   - 放置在 promise 调用之前，await 强制其他代码等待，直到 promise 完成并返回结果
+   - 只能与 promise 一起使用，不适用与回调
+   - 只能在 async 函数内使用
+
+async/await 相比于 promise 的优势：
+
+1. 代码读起来更加同步，
+2. promise 传递中间值非常麻烦
+3. 错误处理友好
+4. 调试友好
+
 ##### class
 
 ##### defineProperty 与 Proxy
