@@ -1,6 +1,6 @@
 # ES6
 
-##### let ，const，var 的区别
+### let ，const，var 的区别
 
 主要从变量提升，暂时性死区，重复声明，块作用域有效
 
@@ -11,13 +11,13 @@
 
 在 JS 中，复杂数据类型，存储在栈中的是指向堆内存的地址，存在栈中的这个地址是不变的，但是存在堆中的值是可以变得。
 
-##### 模版字符串
+### 模版字符串
 
-##### 箭头函数
+### 箭头函数
 
-##### Symbol 类型
+### Symbol 类型
 
-##### 迭代器与 for of
+### 迭代器与 for of
 
 ES6 规定，默认的 Iterator 接口部署在数据结构的 Symbol.iterator 属性。即是一个数据结构只要具有 Symbol.iterator 属性（Symbol.iterator 方法对应的是便历器生成函数，返回的是一个可遍历器对象），那么就可以认为其是可迭代的。
 
@@ -27,15 +27,15 @@ ES6 规定，默认的 Iterator 接口部署在数据结构的 Symbol.iterator �
 2. 可以使用 for...of 进行循环
 3. 通过被 Array.from 转换为数组
 
-##### Set
+### Set
 
-##### Map 和 WeakMap
+### Map 和 WeakMap
 
-##### Promise
+### Promise
 
-##### Generator
+### Generator
 
-##### async 和 await
+### async 和 await
 
 async 函数，就是 Generator 函数的语法糖，建立在 Promise 上，并且与所有现有的基于 Promise 的 API 兼容
 
@@ -55,12 +55,30 @@ async/await 相比于 promise 的优势：
 3. 错误处理友好
 4. 调试友好
 
-##### class
+### class
 
-##### defineProperty 与 Proxy
+class 通过 extend 是关键字实现继承，
+static 关键字定义类的静态方法
 
-##### 模块加载方案
+与 ES5 继承的区别：
 
-##### 装饰器
+1. ES5 的继承，是先创造子类的实例对象 this，然后再将父类的方法添加到 this 上面
+2. ES6 的继承，是先将父类实例对象的属性和方法，加到 this 上面（所以必须先调用 super 方法），然后再用子类的构造函数修改 this
 
-##### 私有变量的实现
+### defineProperty 与 Proxy
+
+### 模块加载方案
+
+##### ES6 模块与 commonJS 模块的区别
+
+区别：
+
+- commonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用
+- commonJS 模块是运行时加载，ES6 模块是编译时输出接口
+- ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块
+
+共同点是都可以对引入的对象进行赋值，即对象内部属性的值进行改变。
+
+### 装饰器
+
+### 私有变量的实现
