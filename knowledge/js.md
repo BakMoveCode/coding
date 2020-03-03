@@ -210,4 +210,4 @@ defer 和 async 的区别：
 1. 标记清除
 2. 引用计数
 
-##### Javascript 的运行机制
+##### Javascript 的事件循环

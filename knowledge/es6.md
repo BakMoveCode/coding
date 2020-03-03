@@ -82,3 +82,12 @@ static 关键字定义类的静态方法
 ### 装饰器
 
 ### 私有变量的实现
+
+### 严格模式与非严格模式的区别
+
+1. 变量必须声明后再使用；函数不能重名，不能使用 fn.caller 和 fn.arguments 获取函数调用的堆栈
+2. this 不能指向全局，ES6 中顶层的 this 指向 undefined
+3. 不能使用 eval 和 with
+4. arguments 不能被重新赋值，不能使用 argument.callee 和 argument.caller，arguments 不会自动反映函数参数的变化
+5. 保留关键字，protected，static，interface
+6. 不能对只读属性赋值，不能 delete prop；不能删除不可删除的属性，不能使用前缀 0 表示八进制数
