@@ -19,3 +19,36 @@
  *
  *
  */
+
+/****
+ * https://mp.weixin.qq.com/s/A9-sqn5Z-rC6YU7KSx8qzA
+ * 继承
+ */
+
+// 原型链继承
+
+function Father() {
+  this.text = "text";
+}
+
+Father.prototype.someFn = function() {};
+
+function Son() {
+  this.text1 = "test1";
+}
+
+Son.prototype = new Father();
+
+// 原型式继承
+
+function cloneObj(obj) {
+  function F() {}
+  F.prototype = obj;
+  return new F();
+}
+
+// 寄生式继承
+
+// 寄生组合式继承
+
+// ES6 extends

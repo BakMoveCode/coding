@@ -13,3 +13,17 @@
  * 2. 需要依赖具体环境创建不同实例
  * 3. 处理大量具有相同属性的小属性
  */
+let Car = (function() {
+  let Car = function(model, year, miles) {
+    this.model = model;
+    this.year = year;
+    this.miles = miles;
+  };
+
+  return function(model, year, miles) {
+    return new Car(model, year, miles);
+  };
+})();
+
+let tom = new Car("tom", "2019", 20000);
+let dudu = new Car("dudu", "2010", 20000);

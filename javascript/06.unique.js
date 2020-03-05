@@ -1,6 +1,69 @@
 /****
  *
  * 数组去重
+ */
+
+const unique = arr => Array.from(new Set(arr));
+
+const unique = arr => [...new Set(arr)];
+
+//includes
+//map
+//object
+//indexof
+//双层循环
+
+const unique1 = function(arrs) {
+  return Array.from(new Set(arrs));
+};
+
+const unique2 = function(arrs) {
+  return [...new Set(arrs)];
+};
+
+const unique3 = function(arrs) {
+  let temp = [];
+  for (let k of arrs) {
+    if (!temp.includes(k)) {
+      temp.push(k);
+    }
+  }
+  return temp;
+};
+
+const unique4 = function(arrs) {
+  let temp = {};
+  for (let k of arrs) {
+    temp[k] = k;
+  }
+  return Object.values(temp);
+};
+
+const unique5 = function(arrs) {
+  let temp = new Map();
+  let result = [];
+  for (let k of arrs) {
+    if (!temp.has(k)) {
+      temp.set(k, k);
+      result.push(k);
+    }
+  }
+  return result;
+};
+
+let nums = [1, 2, 3, 4, 3, 1, 3, 4, 8, 2, 1, 3, 4];
+
+console.log(unique1(nums));
+console.log(unique2(nums));
+console.log(unique3(nums));
+console.log(unique4(nums));
+console.log(unique5(nums));
+
+// ------------------------- mac电脑版本上，待有时间再整理-------------------------
+
+/****
+ *
+ * 数组去重
  *
  * 兼容性：
  *

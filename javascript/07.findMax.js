@@ -1,3 +1,15 @@
+// 数组中查找最大值
+
+let arr = [1, 4, 4, 7, 2, 5, 2, 17, 0];
+
+let max = arr.reduce((n, c) => {
+  Math.max(c, n);
+});
+
+console.log(max);
+
+// ------------------------- mac电脑版本上，待有时间再整理-------------------------
+
 let arr = [1, 2, 4, 3, 2, 1, 6, 9];
 
 const max = function(arr) {

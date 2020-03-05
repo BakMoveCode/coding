@@ -1,3 +1,66 @@
+/**
+ *
+ * 深拷贝扩展，根据不同的类型进行拷贝
+ * https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1#heading-11
+ * https://juejin.im/post/5dc3894051882517a652dbd7#heading-16
+ * https://github.com/Advanced-Interview-Question/front-end-interview/blob/master/docs/guide/deepclone.md
+ */
+
+function getType(obj) {
+  const str = Object.prototype.toString.call(obj);
+  const map = {
+    "[object, Array]": "array",
+    "[object, Number]": "number",
+    "[object, String]": "string",
+    "[object, Function]": "function",
+    "[object, Boolean]": "boolean",
+    "[object, RegExp]": "resExp",
+    "[object, Undefined]": "undefined",
+    "[object, Null]": "null",
+    "[object, Object]": "object"
+  };
+  if (obj instanceof Element) {
+    return "element";
+  }
+  return map[str];
+}
+
+function deepCopy(obj) {
+  const type = getType(obj);
+  let newObj;
+
+  function copyArray(obj, type, newObj = []) {
+    for (let [index, value] of obj.entries()) {
+      newObj[index] = deepCopy(value);
+    }
+    return newObj;
+  }
+  function copyObject(obj, type, newObj = []) {
+    for (let [index, value] of Object.entries(obj)) {
+      newObj[index] = deepCopy(value);
+    }
+    return newObj;
+  }
+  function copyFunction(obj, type, newObj = () => {}) {
+    const fun = eval(obj.toString());
+    fun.prototype = obj.prototype;
+    return fun;
+  }
+
+  switch (type) {
+    case "array":
+      return copyArray(obj, type, newObj);
+    case "object":
+      return copyObject(obj, type, newObj);
+    case "function":
+      return copyFunction(obj, type, newObj);
+    default:
+      return obj;
+  }
+}
+
+// ------------------------- mac电脑版本上，待有时间再整理-------------------------
+
 /***
  *
  * 深拷贝分2个版本，一个简单的版本，一个复杂的版本

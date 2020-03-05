@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+        line-height: 200px;
+        background-color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div>aaaaaa</div>
+    <script>
+      var count = 1;
+      var container = document.getElementById('container');
+
+      function getUserAction() {
+        container.innerHTML = count++;
+      }
+
+      const throttle2 = function(fun, wait) {
+        let timerId = null;
+
+        return function() {
+          if (!timerId) {
+            timerId = setTimeout(() => {
+              fun.apply(this, arguments);
+              timerId = null;
+            }, wait);
+          }
+        };
+      };
+
+      container.onmousemove = throttle2(getUserAction, 1000);
+    </script>
+  </body>
+</html>
