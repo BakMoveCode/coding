@@ -12,11 +12,3 @@ const disorder = arr => {
 };
 
 console.log(disorder(arr));
-
-// ------------------------- mac电脑版本上，待有时间再整理-------------------------
-
-const disorder = function(arr) {
-  return arr.sort(() => {
-    return Math.random() - 0.5;
-  });
-};

@@ -2,7 +2,7 @@
 
 https://github.com/Advanced-Interview-Question/front-end-interview/blob/dev/docs/guide/http.md
 
-### HTTP 协议由哪些方法？
+## HTTP 协议由哪些方法？
 
 GET，用通常于请求服务器发送某些资源
 POST，发送数据给服务器
@@ -26,7 +26,7 @@ PUT 和 POST 都是给服务器发送新增资源，区别是什么？
 
 PUT 和 PATCH 都是给服务器发送修改资源，区别是什么？
 
-### http 的请求报文是什么样的？
+## http 的请求报文是什么样的？
 
 1. 请求报文由 4 部分组成
 
@@ -42,23 +42,27 @@ PUT 和 PATCH 都是给服务器发送修改资源，区别是什么？
 - 空行
 - 响应体
 
-### HTTP 的状态码由哪些？
+## HTTP 的状态码由哪些？
 
 2XX 成功
 3XX 重定向
 4XX 客户端错误
 5XX 服务器错误
 
-### 深入理解 HTTPS 工作原理
+## 深入理解 HTTPS 工作原理
 
-### HTTP2/HTTP3 特性
+## HTTP2/HTTP3 特性
 
-### 网络安全，XSS 和 CSRF
+## 网络安全，XSS 和 CSRF
 
-### 缓存
+## 缓存
 
-### 跨域
+## 跨域
 
-### web 实时推送技术的总结
+## web 实时推送技术的总结
 
-### TCP 和 UDP 比较
+## TCP 和 UDP 比较
+
+## HTTP 的工作原理
+
+## 讲解 HTPPS 对称加密和非对称加密

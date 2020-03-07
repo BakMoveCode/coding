@@ -1,21 +1,14 @@
-// 数组中查找最大值
+/*
+ * @lc app=leetcode.cn id=907 lang=javascript
+ *
+ * [907] 爱吃香蕉的珂珂
+ */
 
-let arr = [1, 2, 4, 3, 2, 1, 6, 9];
-
-const max = function(arr) {
-  return arr.reduce((arr, current) => {
-    return Math.max(arr, current);
-  });
-};
-
-const min = function(arr) {
-  return arr.reduce((arr, current) => {
-    return Math.min(arr, current);
-  });
-};
-
-console.log(max(arr));
-console.log(min(arr));
+// @lc code=start
+/**
+ * @param {number[]} A
+ * @return {number}
+ */
 
 const findMax = function(arr) {
   return arr.reduce((arr, current) => {
@@ -30,7 +23,7 @@ function getHours(piles, speed) {
   }
   return hours;
 }
-function minEatingSpeed(piles, H) {
+var sumSubarrayMins = function(A) {
   let max = findMax(piles);
   let left = 1;
   let right = max;
@@ -48,4 +41,5 @@ function minEatingSpeed(piles, H) {
     }
   }
   return -1;
-}
+};
+// @lc code=end
