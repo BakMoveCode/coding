@@ -55,6 +55,17 @@ async/await 相比于 promise 的优势：
 3. 错误处理友好
 4. 调试友好
 
+解答思路：
+
+1. 先说基本知识点，宏任务，微任务有哪些？
+2. 说事件循环机制过程
+3. 说 async/await 执行顺序注意，可以把 chrome 的优化
+
+新版本的 Chrome，对 async 和 await 的执行顺序进行优化
+
+1. await 后面跟的是同步任务，直接当作微任务处理
+2. await 后面跟的是异步函数，
+
 ### class
 
 class 通过 extend 是关键字实现继承，
@@ -70,6 +81,8 @@ static 关键字定义类的静态方法
 ### 模块加载方案
 
 ##### ES6 模块与 commonJS 模块的区别
+
+https://mp.weixin.qq.com/s/Htug48ztTTIjOufNVBUkKA
 
 区别：
 
@@ -91,3 +104,7 @@ static 关键字定义类的静态方法
 4. arguments 不能被重新赋值，不能使用 argument.callee 和 argument.caller，arguments 不会自动反映函数参数的变化
 5. 保留关键字，protected，static，interface
 6. 不能对只读属性赋值，不能 delete prop；不能删除不可删除的属性，不能使用前缀 0 表示八进制数
+
+### Node 的事件循环机制
+
+https://mp.weixin.qq.com/s/qEmR-N6cANSkKuJt2QO_eg
