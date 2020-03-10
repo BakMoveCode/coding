@@ -6,14 +6,39 @@ https://cloud.tencent.com/developer/article/1540176
 
 白屏时间，是指页面开始请求，到页面刚开始显示内容的时间（一般认为，开始解析 body 就是页面开始解析的时间）
 
+计算：
+
+1. 刚开始展示的时间点，通过在 body 标签前写一个脚本获取时间
+2. 刚开始请求的时间，可以用 window.performance.timing.navigationStart
+
+白屏时间 = endTime - window.performance.timing.navigationStart
+
 首屏时间，在不滚动屏幕的前提下，用户看到完整第一屏所花费的时间，需要全部加载完成
 
 难点获取首屏线（也就是第一屏显示的最底部的 html，通过计算）？
 
 1. 标记首屏标签模块
+   - 首屏内不需要拉取数据，否则可能拿到首屏线获取时间的时候，首屏还是空白
+   - 不考虑图片加载，只考虑首屏的主要模块
+   - 首屏时间 = firstScreen - performance.timing.navigationStart
 2. 统计首屏最慢图片加载时间
+   - 逐个监听图片标签的 onload 事件，并收集到它们的加载事件最后比较得到加载时间的最大值
+   - 首屏时间 = 加载最慢的首屏图片时间 - performance.timing.navigationStart
 
 通过 window.performance 下的属性进行计算
+
+window.performance
+
+1. 方法：
+   mark()
+   now()
+
+2. 属性：
+   performance.timing，对象（PerformanceTiming）包含延迟相关的性能信息
+   performance.navigation，对象表示在当前给定浏览上下文中网页导航的类型
+
+3. PerformanceTiming
+   PerformanceTiming.navigationStart 是表示从同一个浏览器上下文的上一个文档卸载结束时的时间搓
 
 ## CDN 的原理，使用，缓存静态资源的注意事项
 
@@ -30,12 +55,16 @@ https://cloud.tencent.com/developer/article/1540176
 懒加载：
 原理是暂时不设置图片的 src 属性，而是将图片的 url 隐藏起来，比如先写在 data-src 里面，等某些事件触发的时候（比如滚动到底部，点在再加载图片），再将真实的 url 放进入 src 属性里面，从而实现图片的延迟加载
 
+具体的实现方式？
+
 预加载：
 指在一些需要展示大量图片的网站，实现图片的提前加载
 常用的 2 种方式：
 
 1. 隐藏在 css 的 background 的 url 属性里面
 2. 通过 JS 的 Image 对象设置实例对象的 src 属性实现图片的预先加载
+
+具体的实现方式？
 
 ## 静态资源加载和更新的策略
 
@@ -145,3 +174,5 @@ HTTP 请求优化：
      视窗内的元素优先渲染
    - 服务端渲染
    - 优化用户感知
+
+## 懒加载，预加载和异步加载的实现方式？

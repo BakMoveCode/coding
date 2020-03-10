@@ -146,3 +146,8 @@ https://mp.weixin.qq.com/s/klZ6j3Gj9cwHGQFys6Hdjg
 3. GPU 进程，
 4. 网络进程，主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近踩独立出来，成为一个单独的进程
 5. 插件进程，主要是负责插件的运行，因插件易奔溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。
+
+## GPU 加速（will-change）
+
+https://juejin.im/post/5df5bcea6fb9a016091def69#heading-61
+https://juejin.im/post/5da52531518825094e373372
