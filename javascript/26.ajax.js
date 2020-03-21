@@ -3,9 +3,9 @@
  * https://zhuanlan.zhihu.com/p/27776535
  *
  * 1. 创建XMLHttpRequest()实例
- * 2. 返回promise对象
- * 3. 添加需要传递的参数，请求方法，处理错误信息
- * 4. 处理返回的状态遍历（正确和错误）
+ * 2. 返回promise对象，初始化，
+ * 3. 处理返回的状态遍历（正确和错误）
+ * 4. 添加需要传递的参数，请求方法，处理错误信息
  *
  */
 const Ajax = function({

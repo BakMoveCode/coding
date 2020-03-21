@@ -2,6 +2,8 @@
 
 https://github.com/Advanced-Interview-Question/front-end-interview/blob/dev/docs/guide/http.md
 
+https://zhuanlan.zhihu.com/p/86426969
+
 ## HTTP 协议由哪些方法？
 
 GET，用通常于请求服务器发送某些资源
@@ -50,6 +52,12 @@ PUT 和 PATCH 都是给服务器发送修改资源，区别是什么？
 5XX 服务器错误
 
 ## 深入理解 HTTPS 工作原理
+
+HTTPS 相比于 HTTP 的优点：
+
+1. 密文传输
+2. 安全性，证书与数字签名
+3. 数据一致性
 
 ## HTTP2/HTTP3 特性
 
