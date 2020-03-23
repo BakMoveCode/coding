@@ -1,6 +1,14 @@
 /**
- * 实现一个二叉搜索树
- * https://mp.weixin.qq.com/s/PpR1Lvg8pk3dRWHmVtaBYws
+ * 二叉树
+ * http://www.conardli.top/docs/dataStructure/二叉树/二叉树的基本操作.html#基本结构
+ *
+ * 二叉树
+ *
+ * 四种遍历的主要思想：
+ * 1. 前序遍历：访问根》遍历左子树？遍历右子树
+ * 2. 中序遍历：访问左子树》访问根》遍历右子树
+ * 3. 后序遍历：遍历左子树》遍历右子树》访问根
+ * 4. 广度遍历：按照层次一层层遍历
  *
  */
 
@@ -31,21 +39,27 @@ Tree.prototype.insert = function(data) {
   }
   // root是当前树的根节点
   let current = this.root;
+  // 定义为父亲节点
   let parent = null;
   // 循环条件是current是否存在
   while (current) {
+    // 首先，将当前节点赋给父亲节点
     parent = current;
     if (data < parent.data) {
-      // 插入左边的树
+      // 将当前节点的左节点给当前节点
       current = current.left;
+      // 如果不存在节点
       if (!current) {
+        // 那node就是节点
         parent.left = node;
         return;
       }
     } else {
-      // 插入右边的树
+      // 将当前节点给🈶️节点
       current = current.right;
+      // 如果不存在节点
       if (!current) {
+        // 那该节点就是右节点
         parent.right = node;
         return;
       }
@@ -72,7 +86,6 @@ Tree.prototype.middleOrder = function(node) {
 };
 
 // 树的后续排列
-
 Tree.prototype.laterOrder = function(node) {
   if (node) {
     this.laterOrder(node.left);
@@ -81,6 +94,7 @@ Tree.prototype.laterOrder = function(node) {
   }
 };
 
+// 获取最小节点
 Tree.prototype.getMin = function() {
   let current = this.root;
   while (current) {
@@ -91,6 +105,7 @@ Tree.prototype.getMin = function() {
   }
 };
 
+// 获取最大节点
 Tree.prototype.getMax = function() {
   let current = this.root;
   while (current) {
@@ -101,6 +116,7 @@ Tree.prototype.getMax = function() {
   }
 };
 
+// 获取深度
 Tree.prototype.getDeep = function(node, deep) {
   deep = deep || 0;
   if (node === null) {
@@ -110,6 +126,20 @@ Tree.prototype.getDeep = function(node, deep) {
   let dleft = this.getDeep(node.left, deep);
   let dright = this.getDeep(node.right, deep);
   return Math.max(dleft, dright);
+};
+
+Tree.prototype.getNode = function(data, node) {
+  if (node) {
+    if (data === node.data) {
+      return node;
+    } else if (data < node.data) {
+      return this.getNode(data, node.left);
+    } else {
+      return this.getNode(data, node.right);
+    }
+  } else {
+    return null;
+  }
 };
 
 let t = new Tree();
@@ -123,7 +153,7 @@ t.insert(6);
 t.insert(0);
 
 console.log(t);
-t.middleOrder(t.root);
-console.log(t.getMin(), t.getMax());
-console.log(t.getDeep(t.root, 0));
+// t.middleOrder(t.root);
+// console.log(t.getMin(), t.getMax());
+// console.log(t.getDeep(t.root, 0));
 console.log(t.getNode(5, t.root));
