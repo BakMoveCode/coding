@@ -2,15 +2,58 @@
 
 ## Vue 的响应式原理
 
+1. Vue2.0 的 object.defineProperty，通过 getter 和 setter 对对象的属性进行代理，当代理对象中的某个值被访问或者重新赋值就会触发相应的 get 和 set 方法。
+   注意：
+   对数组的代理，vue2.0 是直接重新数组的原型方法来进行监听的，比如直接修改数组的长度，是不能进行绑定的
+2. Vue3 的 Proxy，直接对对象进行代理
+   注意：
+   可直接对数组进行代理，
+   如果是数组里的是对象，也需要进行深层次的绑定
+   优点：
+   数组变化也能监听到
+   不需要深度遍历监听
+
+## Vue 中的双向绑定原理和依赖收集原理
+
 ## Virtual DOM
+
+原因：DOM 引擎与 JS 引擎相互独立，同时又工作在同一个线程上。JS 代码调用 DOM API 必须挂起 JS 引擎，转换传入参数数据，激活 DOM 引擎，DOM 重绘后再转换可能有的返回值，最后激活 JS 殷勤并继续执行。若有频繁的 DOM API 调用，重新计算布局，重新绘制图像会引起更大的性能消耗。
+
+VDOM 和真实 DOM 的区别和优化：
+
+1. 虚拟 DOM 不会立马进行排版与重绘操作
+2. 虚拟 DOM 进行频繁修改，然后一次性比较并修改真实 DOM 中需要修改的部分，最后在真实 DOM 中进行排版与重绘，减少过多 DOM 节点排版与重绘消耗
+3. 虚拟 DOM 有效降低大面积真实 DOM 的重绘与排版，因为最终与真实 DOM 比较差异，可以只渲染局部
+
+## diff 算法
 
 ## 如何事件 component
 
 ## 组件间通信
 
+1. 子向父：props 和 \$emit
+2. 父向子：\$refs
+3. 兄弟：$parent 和 $child
+4. 跨级组件通信：provide/inject
+5. 任意组件：vuex
+
 ## Vuex
 
+是一个全局集中响应式状态的管理工具，状态会保存在 state 内，可以被所有组件所引用，一经修改后引用 state 内状态的组件都会响应式的更新。
+
+state 不能被直接修改，必须 commit 内提交 mutation 才行，而且 mutation 必须是同步函数。
+提交 action 可以在内部进行异步操作，可同时提交多个 mutation
+
+state：状态中心
+mutations：更改状态
+actions：异步更改状态
+getters：获取状态
+modules：将 state 分成多个 modules，便于管理
+
 ## Vue-router
+
+1. hash 模式
+2. history 模式
 
 ## Vue Hook
 
@@ -51,3 +94,30 @@ hook 实现了 mixins 的功能，但是避免了 mixins 带来的两个主要�
    空白延迟：HTML 下载时间 + JS 下载/执行时间 + 请求时间 + 渲染时间。在这段时间内，页面处于空白的状态。
 2. SEO 问题
    由于页面初始状态为空，因此爬虫无法获取页面中任何有效数据，因此对搜索引擎不友好
+
+## Vue 的生命周期
+
+分为 4 类：
+
+1. 创建
+2. 绑定
+3. 更新
+4. 销毁
+
+## keep-alive
+
+被 keep-alive 包裹的组件，不会被销毁，也不会重建，会被保存在内存中。
+
+缓存后的组件的生命周期是使用 actived 和 deactivated
+
+## Vue 的懒加载和按需加载
+
+## Vue 中 computed 和 watched 的区别
+
+## 循环渲染中的 key 有什么作用
+
+## prefetch 和 preload
+
+## nextTick 方法是怎么实现的
+
+## EventBUS 传输数据是同步还是异步的
