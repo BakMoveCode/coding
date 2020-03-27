@@ -1,0 +1,56 @@
+# PWA
+
+## 特点
+
+PWA 是渐进式应用
+
+目前 web 应用现状：
+
+1. web 应用，在 PC 上没有缓存，打开页面的时候才去请求数据
+2. 也没有像 app 一样的小图标，一点开就进入应用，而是需要浏览器输入网址
+3. 不能像 app 一样给用户推送消息
+
+特点：
+
+1. 消息推送
+2. 后台加载
+3. 离线使用
+4. 桌面图标
+
+核心是使用 service worker 来实现离线访问和用户消息推送等功能
+
+## 缓存
+
+使用的是 cacheStorage 缓存，
+
+## Service worker
+
+生命周期：
+
+1. 安装中
+2. 安装
+3. 激活中
+4. 激活后
+5. 销毁，只有主动销毁才能被销毁，关闭浏览器不能被销毁
+
+流程：
+
+1. 首次导航到网站时会，下载、解析并执行 Service Worker 文件，触发 install 事件，
+   尝试安装 Service Worker，如果 install 事件回调函数中的操作都执行成功，标志 Service Worker 安装成功，
+2. 此时进入 waiting 状态，注意这时的 Service Worker 只是准备好了而已，并没有生效，当用户二次进入网站时，才会激
+   活 Service Worker，
+3. 此时会触发 activate 事件，标志 Service Worker 正式启动，开始响应 fetch、post、sync 等事件
+
+事件：
+
+1. install，安装时触发，通常在这个时机缓存文件
+2. activate
+3. fetch
+4. push
+5. sync
+
+## service worker 应用
+
+1. 缓存静态资源
+   cacheStorage API 来缓存 js，css，字体，图片等静态文件
+2. 离线体验
