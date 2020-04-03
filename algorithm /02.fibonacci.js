@@ -30,6 +30,7 @@ function fib2(n, memory = []) {
 
 // console.log(fib2(10));
 
+// 动态规划
 function fib3(n) {
   if (n <= 1) {
     return n;
