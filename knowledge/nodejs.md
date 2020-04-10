@@ -2,7 +2,9 @@
 
 构建在 chrome 的 V8 上，采用事件驱动，非阻塞模式
 
-## 事件循环
+## Node 的事件循环机制
+
+https://mp.weixin.qq.com/s/qEmR-N6cANSkKuJt2QO_eg
 
 ## 创建进程和线程
 

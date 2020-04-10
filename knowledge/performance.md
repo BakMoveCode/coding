@@ -40,10 +40,6 @@ window.performance
 3. PerformanceTiming
    PerformanceTiming.navigationStart 是表示从同一个浏览器上下文的上一个文档卸载结束时的时间搓
 
-## CDN 的原理，使用，缓存静态资源的注意事项
-
-## CDN 判断是否劫持和如何应对
-
 ## 性能监控平台是如何捕获错误的
 
 ## 性能监控
@@ -124,16 +120,22 @@ HTTP 请求优化：
    - 减少 table 布局
    - 层级扁平
    - 减少使用通配符
+   - 特定的选择器
+   - 减少不必要的多余属性
    - 使用动画属性
 3. js 优化
    - 减少闭包使用
    - 减少使用 iframe
    - 减少循环次数
+   - 对象嵌套的越深，读取速度越慢
+   - 使用 async 方式，defer 方式，动态创建 script 标签方式
 4. 图片优化
    - 尽量不使用图片，使用 CSS3 代替
    - 雪碧图，SVG 图片，
    - 图片的懒加载和预先加载
    - 将图片转换成 base 格式
+5. 缓存
+   - gzip 压缩，cache-control，Etag
 
 三 前端可以做的性能优化
 

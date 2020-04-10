@@ -104,7 +104,3 @@ https://mp.weixin.qq.com/s/Htug48ztTTIjOufNVBUkKA
 4. arguments 不能被重新赋值，不能使用 argument.callee 和 argument.caller，arguments 不会自动反映函数参数的变化
 5. 保留关键字，protected，static，interface
 6. 不能对只读属性赋值，不能 delete prop；不能删除不可删除的属性，不能使用前缀 0 表示八进制数
-
-### Node 的事件循环机制
-
-https://mp.weixin.qq.com/s/qEmR-N6cANSkKuJt2QO_eg

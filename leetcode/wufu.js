@@ -1,10 +1,15 @@
+/***
+ *
+ * 华为笔试题，集五福
+ */
+
 function find(str) {
   if (str.length === 0) {
     return false;
   }
   let nums = str.split(",");
   let result = [0, 0, 0, 0, 0];
-  nums.forEach(element => {
+  nums.forEach((element) => {
     let temp = element.split("");
     temp.forEach((v, i) => {
       if (v === "1") {

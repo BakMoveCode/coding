@@ -22,6 +22,10 @@ CDN，content delivery network 中文名称叫做内容分发网络
 
 ## CDN 的优点
 
+## CDN 的原理，使用，缓存静态资源的注意事项
+
+## CDN 判断是否劫持和如何应对
+
 ## CDN 的关键技术
 
 1. 内容发布

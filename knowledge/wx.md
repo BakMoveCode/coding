@@ -2,6 +2,8 @@
 
 https://juejin.im/post/5cc26dfef265da037b611738#heading-3
 
+https://juejin.im/post/5b8fd1416fb9a05cf3710690?utm_source=gold_browser_extension
+
 ## 微信小程序原理
 
 微信小程序的渲染呈现方式是：webview+原生组件
@@ -21,7 +23,7 @@ H5 采用的是 webview 进行渲染，通过 JSBridge 完成 H5 与 Native 的�
 原理：
 
 1. 在渲染层把 WXML 转化称对应的 JS 对象
-2. 在逻辑层发生数据变更的时候，通过宿主环境提供的 setData 方法把数据从逻辑层传递到 Natibe 层，再转发到渲染层
+2. 在 JS 逻辑层发生数据变更的时候，通过宿主环境提供的 setData 方法把数据从逻辑层传递到 Native 层，再转发到渲染层
 3. 经过对比前后差异，把差异应用在原来的 DOM 树上，更新界面
 
 通过把 WXML 转化为数据，通过 Native 进行转发，来实现逻辑层和渲染层的交互和通信。

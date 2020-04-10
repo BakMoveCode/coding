@@ -125,6 +125,8 @@ IT Trident Chakra（for Jscript）
 
 ## 浏览器的缓存
 
+https://github.com/ljianshu/Blog/issues/23
+
 缓存分为强缓存和协商缓存
 
 1. 强缓存
